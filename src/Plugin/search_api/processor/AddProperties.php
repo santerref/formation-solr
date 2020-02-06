@@ -55,6 +55,11 @@ class AddProperties extends ProcessorPluginBase {
     }
   }
 
+  /**
+   * Cette fonction appelle un API qui génère des faits de chats.
+   *
+   * @return mixed|string
+   */
   protected function getCatQuote() {
     $quote = "Sorry, the Meow Facts' API isn't working.";
     try {

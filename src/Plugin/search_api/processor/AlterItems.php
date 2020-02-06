@@ -24,14 +24,15 @@ class AlterItems extends ProcessorPluginBase {
     foreach ($items as $item_id => $item) {
       $object = $item->getOriginalObject()->getValue();
       /**
-       * Comme tous les contenus dans l'indexe ne sont pas des nodes,
+       * Comme tous les contenus dans l'index ne sont pas des noeuds,
        * nous nous assurons que l'objet est une instance de NodeInterface
        * et ensuite nous regardons dans le titre si le mot "Ricardo" est présent.
        */
       if ($object instanceof NodeInterface) {
         if (preg_match('/Ricardo/i', $object->label())) {
           /**
-           * Ici nous retirons l'éléments de l'indexe Solr
+           * Ici nous retirons l'élément de l'index Solr, car nous avons
+           * trouvé le mot "Ricardo" dans le titre.
            */
           unset($items[$item_id]);
         }

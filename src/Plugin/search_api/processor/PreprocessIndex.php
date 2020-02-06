@@ -18,9 +18,17 @@ use Drupal\search_api\Processor\FieldsProcessorPluginBase;
 class PreprocessIndex extends FieldsProcessorPluginBase {
 
   public function processFieldValue(&$value, $type) {
+    /**
+     * Les champs qui seront remplacés sont définis dans la configuration du processeur (UI/backend).
+     */
     $value = $this->getJoke();
   }
 
+  /**
+   * Cette fonction appelle un API qui génère des blagues informatique aléatoirement.
+   *
+   * @return string
+   */
   protected function getJoke() {
     $joke = "Sorry, the Joke's API isn't working.";
     try {
